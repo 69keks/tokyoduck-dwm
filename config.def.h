@@ -22,6 +22,14 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
 
+static const char *tagsel[][2] = {
+	{ "#0f111b", "#f7768e" },
+	{ "#0f111b", "#e0af68" },
+	{ "#0f111b", "#bb9af7" },
+	{ "#0f111b", "#9ece6a" },
+	{ "#0f111b", "#7aa2f7" },
+};
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
