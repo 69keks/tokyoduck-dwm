@@ -39,8 +39,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       3,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "Gimp",      NULL,       NULL,       2,            1,           -1 },
+	{ "Firefox",   NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "obsidian",  NULL,       NULL,       1 << 3,       0,           -1 },
 };
 
 /* layout(s) */
@@ -73,8 +74,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 /* brightness */
-static const char *brightness_down[]    = { "brillo", "-u", "150000", "-U", "5", NULL };
-static const char *brightness_up[]      = { "brillo", "-u", "150000", "-A", "5", NULL };
+static const char *brightness_down[]    = { "brillo", "-u", "200000", "-U", "5", NULL };
+static const char *brightness_up[]      = { "brillo", "-u", "200000", "-A", "5", NULL };
 
 /* Volume Control */
 static const char *volup[]      = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
@@ -108,6 +109,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
   { 0,                            XF86XK_MonBrightnessUp, spawn,  {.v = brightness_up } },
 	{ 0,                            XF86XK_MonBrightnessDown,       spawn,  {.v = brightness_down } },
+  // TODO: Add keyboard backlight control functionality independent of `asusctl` for non-systemd init
 	/*{ 0,                            XF86XK_KbdBrightnessUp, spawn,  {.v = kbdbrightness_up } },*/
 	/*{ 0,                            XF86XK_KbdBrightnessDown,       spawn, {.v = kbdbrightness_down } },*/
 	{ 0,                            XF86XK_AudioRaiseVolume,        spawn, {.v = volup } },
